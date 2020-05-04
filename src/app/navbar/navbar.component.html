@@ -1,0 +1,42 @@
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    LOGO
+  </div>
+
+  <div class="ui-toolbar-group-right">
+    <button pButton type="button" label="Login" style="margin-right: 10px" (click)="showLogin()"></button>
+    <button pButton type="button" label="Register"></button>
+  </div>
+
+  <p-dialog header="Login" [(visible)]="displayLogin">
+    <form>
+      <div class="ui-g ui-fluid">
+
+        <div class="ui-g-12">
+          <h1>Login</h1>
+        </div>
+
+        <div class="ui-g-12">
+          <input pInputText type="email" name="username" placeholder="E-mail"
+                  required>
+        </div>
+
+        <div class="ui-g-12">
+          <input pInputText type="password" name="password" placeholder="Password"
+                 required>
+        </div>
+
+        <div class="ui-g-12">
+          <button pButton type="submit" label="Login" ></button>
+        </div>
+
+      </div>
+    </form>
+  </p-dialog>
+
+  <p-dialog header="Register" [(visible)]="displayRegister">
+
+  </p-dialog>
+
+</p-toolbar>
+
