@@ -11,6 +11,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { OverlayPanelModule } from 'primeng';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -27,7 +32,10 @@ import { InputTextModule } from 'primeng/inputtext';
     ToolbarModule,
     ButtonModule,
     DialogModule,
-    InputTextModule
+    InputTextModule,
+    OverlayPanelModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

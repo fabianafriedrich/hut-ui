@@ -1,0 +1,48 @@
+::ng-deep body .ui-toolbar {
+  background-color: #0B4768;
+  border: 1px solid #0b4768;
+  padding: 0.571em 1em;
+}
+
+::ng-deep body .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.429em 1em;
+}
+::ng-deep body .ui-button{
+  margin-right: 10px;
+  border-color: white;
+  background-color: #0B4768;
+}
+::ng-deep body .ui-button:enabled:hover {
+  background-color: #008CBA;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+}
+::ng-deep body .ui-overlaypanel {
+  background-color: #DDDEDE;
+  color: #333333;
+  padding: 0;
+  border: 1px solid #c8c8c8;
+  border-radius: 0;
+  border-color: #008CBA;
+
+}
+
+::ng-deep body .ui-inputgroup .ui-inputgroup-addon {
+  background-color: white;
+  margin-left: 10px;
+}
+a{
+  margin-right: 50px;
+}
+#signIn{
+  background-color: #008CBA;
+  margin-left: 270px;
+}
+
+input{
+  width: 100%;
+  clear: both;
+}

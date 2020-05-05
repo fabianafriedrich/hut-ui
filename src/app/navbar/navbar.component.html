@@ -1,42 +1,91 @@
-<p-toolbar>
+<link rel="stylesheet" type="text/css" href="navbar.component.css">
+<p-toolbar class="nav-bar">
   <div class="ui-toolbar-group-left">
-    LOGO
+    <img src="../../assets/images/Capture.PNG" alt="HUT" >
   </div>
 
   <div class="ui-toolbar-group-right">
-    <button pButton type="button" label="Login" style="margin-right: 10px" (click)="showLogin()"></button>
-    <button pButton type="button" label="Register"></button>
+    <button pButton type="button" label="Login"  (click)="op1.toggle($event)"></button>
+    <button pButton type="button" label="Register" (click)="op2.toggle($event)"></button>
   </div>
-
-  <p-dialog header="Login" [(visible)]="displayLogin">
-    <form>
+  <p-overlayPanel #op1>
+    <ng-template pTemplate>
       <div class="ui-g ui-fluid">
-
         <div class="ui-g-12">
-          <h1>Login</h1>
+          <div class="ui-inputgroup">
+            <b>Email: </b>
+            <input id="username" class="ui-inputgroup-addon" type="text" >
+          </div>
         </div>
-
-        <div class="ui-g-12">
-          <input pInputText type="email" name="username" placeholder="E-mail"
-                  required>
-        </div>
-
-        <div class="ui-g-12">
-          <input pInputText type="password" name="password" placeholder="Password"
-                 required>
-        </div>
-
-        <div class="ui-g-12">
-          <button pButton type="submit" label="Login" ></button>
-        </div>
-
       </div>
-    </form>
-  </p-dialog>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ">
+          <div class="ui-inputgroup">
+            <b>Password: </b>
+            <input id="password" class="ui-inputgroup-addon"type="password" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12 ">
+        <div class="ui-inputgroup">
+          <a href="">Forgot your password?</a>
+<!--          TODO-->
+          <button id="login" pButton type="submit" label="Login" class="ui-button-success"></button>
+        </div>
+      </div>
 
-  <p-dialog header="Register" [(visible)]="displayRegister">
+    </ng-template>
+  </p-overlayPanel>
 
-  </p-dialog>
+  <p-overlayPanel #op2>
+    <ng-template pTemplate>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <b>Name: </b>
+            <input id="name" class="ui-inputgroup-addon" type="text" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <b>Student Id: </b>
+            <input id="studentId" class="ui-inputgroup-addon" type="text" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <b>Email: </b>
+            <input id="emailRegister" class="ui-inputgroup-addon" type="text" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ">
+          <div class="ui-inputgroup">
+            <b>Password: </b>
+            <input id="psw" class="ui-inputgroup-addon"type="password" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ">
+          <div class="ui-inputgroup">
+            <b>Confirm Password: </b>
+            <input id="confirmPsw" class="ui-inputgroup-addon"type="password" >
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12 ">
+        <div class="ui-inputgroup">
+          <button id="signIn" pButton class="ui-button-icon-right" type="button" label="Sing In"></button>
+        </div>
+      </div>
 
+    </ng-template>
+  </p-overlayPanel>
 </p-toolbar>
 

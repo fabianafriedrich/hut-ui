@@ -1,0 +1,9 @@
+img{
+  position:fixed;
+  bottom:0px;
+  width: 100%;
+}
+.welcome{
+  padding-top: 100px;
+  padding-left: 150px;
+}
