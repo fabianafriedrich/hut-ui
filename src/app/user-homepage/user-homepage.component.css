@@ -1,0 +1,3 @@
+.ui-widget, .ui-widget * {
+  box-sizing: border-box;
+}

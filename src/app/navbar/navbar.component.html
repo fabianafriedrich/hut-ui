@@ -10,81 +10,90 @@
   </div>
   <p-overlayPanel #op1>
     <ng-template pTemplate>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12">
-          <div class="ui-inputgroup">
-            <b>Email: </b>
-            <input id="username" class="ui-inputgroup-addon" type="text" >
+      <form method="get" (ngSubmit)="login()" [formGroup]="formLogin">
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+              <div class="ui-inputgroup">
+                <input pInputText formControlName="email" class="ui-inputgroup-addon" type="text" placeholder="Email" >
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui-g ui-fluid">
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ">
+              <div class="ui-inputgroup">
+                <input pInputText formControlName="password" class="ui-inputgroup-addon" placeholder="Password" type="password" >
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="ui-g-12 ">
           <div class="ui-inputgroup">
-            <b>Password: </b>
-            <input id="password" class="ui-inputgroup-addon"type="password" >
+            <a href="">Forgot your password?</a>
+            <!--          TODO-->
+            <button id="login" pButton type="submit" label="Login" class="ui-button-success"></button>
           </div>
         </div>
-      </div>
-      <div class="ui-g-12 ">
-        <div class="ui-inputgroup">
-          <a href="">Forgot your password?</a>
-<!--          TODO-->
-          <button id="login" pButton type="submit" label="Login" class="ui-button-success"></button>
-        </div>
-      </div>
-
+      </form>
     </ng-template>
   </p-overlayPanel>
 
   <p-overlayPanel #op2>
     <ng-template pTemplate>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12">
-          <div class="ui-inputgroup">
-            <b>Name: </b>
-            <input id="name" class="ui-inputgroup-addon" type="text" >
+      <form method="post" (ngSubmit)="register()" [formGroup]="formRegister">
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+              <div class="ui-inputgroup">
+                <input formControlName="name" class="ui-inputgroup-addon" type="text" placeholder="Name">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12">
-          <div class="ui-inputgroup">
-            <b>Student Id: </b>
-            <input id="studentId" class="ui-inputgroup-addon" type="text" >
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+              <div class="ui-inputgroup">
+                <input formControlName="studentId" class="ui-inputgroup-addon" type="text" placeholder="Student Id">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12">
-          <div class="ui-inputgroup">
-            <b>Email: </b>
-            <input id="emailRegister" class="ui-inputgroup-addon" type="text" >
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+              <div class="ui-inputgroup">
+                <input formControlName="emailRegister" class="ui-inputgroup-addon" type="text" placeholder="Email">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui-g ui-fluid">
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ">
+              <div class="ui-inputgroup">
+                <input formControlName="psw" class="ui-inputgroup-addon"type="password" placeholder="Password" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ">
+              <div class="ui-inputgroup">
+                <input formControlName="confirmPsw" class="ui-inputgroup-addon"type="password" placeholder="Confirm Password" >
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="ui-g-12 ">
           <div class="ui-inputgroup">
-            <b>Password: </b>
-            <input id="psw" class="ui-inputgroup-addon"type="password" >
+            <button id="signIn" pButton class="ui-button-success" type="submit" label="Sing In"></button>
           </div>
         </div>
-      </div>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ">
-          <div class="ui-inputgroup">
-            <b>Confirm Password: </b>
-            <input id="confirmPsw" class="ui-inputgroup-addon"type="password" >
-          </div>
-        </div>
-      </div>
-      <div class="ui-g-12 ">
-        <div class="ui-inputgroup">
-          <button id="signIn" pButton class="ui-button-icon-right" type="button" label="Sing In"></button>
-        </div>
-      </div>
-
+      </form>
     </ng-template>
   </p-overlayPanel>
 </p-toolbar>
