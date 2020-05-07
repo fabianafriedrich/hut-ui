@@ -18,6 +18,8 @@ import { MenuComponent } from './menu/menu.component';
 import {SidebarModule} from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { MessagesModule } from 'primeng/messages';
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import {FullCalendarModule} from 'primeng/fullcalendar';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { MessagesModule } from 'primeng/messages';
     NavbarComponent,
     WelcomeComponent,
     UserHomepageComponent,
-    MenuComponent
+    MenuComponent,
+    AnnouncementsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { MessagesModule } from 'primeng/messages';
     FormsModule,
     MessageModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

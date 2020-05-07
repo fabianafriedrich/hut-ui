@@ -10,9 +10,13 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class LoginService {
 
   baseUrl: string;
-
   public currentUser: Observable<User>;
   private currentUserSubject: BehaviorSubject<User>;
+  private loggedIn = new BehaviorSubject<boolean>(false);
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
 
   constructor(private http: HttpClient) {
     this.baseUrl = `${environment.apiUrl}/users`;
@@ -46,8 +50,8 @@ export class LoginService {
       data => {
         localStorage.setItem('auth', auth);
         localStorage.setItem('currentUser', JSON.stringify(data.valueOf()));
-        // this.currentUserSubject.next(data);
-      },
+        this.loggedIn.next(true);
+        },
       error => {
         localStorage.removeItem('auth');
         localStorage.removeItem('currentUser');
@@ -56,8 +60,17 @@ export class LoginService {
   }
   /*Register functionality*/
   register(user: User) {
-    debugger;
     return this.http.post(this.baseUrl + '/registration', user,
       this.getHeaders(localStorage.getItem('auth')));
+  }
+
+  logOut() {
+  const request = this.http.post(this.baseUrl + '/logout', {});
+  request.subscribe(
+      data => {
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+        this.loggedIn.next(false);
+      });
   }
 }

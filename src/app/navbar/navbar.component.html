@@ -7,8 +7,10 @@
   <p-toast></p-toast>
 
   <div class="ui-toolbar-group-right" >
-    <button pButton type="button" label="Login"  (click)="op1.toggle($event)"  ></button>
-    <button pButton type="button" label="Register" (click)="op2.toggle($event)" ></button>
+    <button pButton type="button" label="Login"  (click)="op1.toggle($event)" *ngIf="!(isLoggedIn$ | async)" ></button>
+    <button pButton type="button" label="Register" (click)="op2.toggle($event)" *ngIf="!(isLoggedIn$ | async)" ></button>
+    <button pButton type="button" label="Logout" (click)="onLogout()" *ngIf="isLoggedIn$ | async"></button>
+
   </div>
   <p-overlayPanel #op1>
     <ng-template pTemplate>

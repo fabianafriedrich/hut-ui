@@ -4,6 +4,7 @@ import {LoginService} from '../service/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../models/user';
 import {MessageService} from 'primeng/api';
+import {Observable} from 'rxjs';
 
 
 
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   formRegister: FormGroup;
   user: User = new User();
   isSubmitted: boolean;
+  isLoggedIn$: Observable<boolean>;
 
   constructor(private service: LoginService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private messageService: MessageService) { }
@@ -27,6 +29,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.formConfigRegister();
     this.formConfigLogin();
+    this.isLoggedIn$ = this.service.isLoggedIn;
   }
   /*Get all the values from the login form*/
   get valuesLogin() {
@@ -110,6 +113,11 @@ export class NavbarComponent implements OnInit {
       }
     }
 
+  }
+
+  onLogout(){
+    this.service.logOut();
+    this.router.navigate(['users/welcome']);
   }
 
 }
