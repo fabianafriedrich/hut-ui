@@ -1,3 +1,17 @@
-.ui-widget, .ui-widget * {
-  box-sizing: border-box;
+/*img{*/
+/*  position:fixed;*/
+/*  bottom:0px;*/
+/*  width: 100%;*/
+/*  margin-left: 0px;*/
+/*  margin-right: 0px;*/
+/*  padding-left: 0px;*/
+/*}*/
+
+::ng-deep body {
+  background-image: url('../../assets/images/background2.png');
+  background-attachment: fixed;
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+

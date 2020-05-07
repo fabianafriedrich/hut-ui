@@ -2,7 +2,12 @@
   background-color: #0B4768;
   border: 1px solid #0b4768;
   padding: 0.571em 1em;
+  margin: 0px;
 }
+.custom-toast .ui-toast {
+  margin-top: 80px;
+}
+
 
 ::ng-deep body .ui-button.ui-button-text-only .ui-button-text {
   padding: 0.429em 1em;

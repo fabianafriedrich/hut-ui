@@ -1,8 +1,11 @@
-img{
-  position:fixed;
-  bottom:0px;
-  width: 100%;
+::ng-deep body {
+  background-image: url('../../assets/images/Background.png');
+  background-attachment: fixed;
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
 .welcome{
   padding-top: 100px;
   padding-left: 150px;

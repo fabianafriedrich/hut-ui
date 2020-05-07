@@ -4,18 +4,23 @@
     <img src="../../assets/images/Capture.PNG" alt="HUT" >
   </div>
 
-  <div class="ui-toolbar-group-right">
-    <button pButton type="button" label="Login"  (click)="op1.toggle($event)"></button>
-    <button pButton type="button" label="Register" (click)="op2.toggle($event)"></button>
+  <p-toast></p-toast>
+
+  <div class="ui-toolbar-group-right" >
+    <button pButton type="button" label="Login"  (click)="op1.toggle($event)"  ></button>
+    <button pButton type="button" label="Register" (click)="op2.toggle($event)" ></button>
   </div>
   <p-overlayPanel #op1>
     <ng-template pTemplate>
-      <form method="get" (ngSubmit)="login()" [formGroup]="formLogin">
+      <form method="get" (ngSubmit)="login()" [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin.value)">
         <div class="form-group">
           <div class="ui-g ui-fluid">
             <div class="ui-g-12">
               <div class="ui-inputgroup">
                 <input pInputText formControlName="email" class="ui-inputgroup-addon" type="text" placeholder="Email" >
+              </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Email is required" *ngIf="!formLogin.controls['email'].valid&&formLogin.controls['email'].dirty"></p-message>
               </div>
             </div>
           </div>
@@ -26,6 +31,9 @@
               <div class="ui-inputgroup">
                 <input pInputText formControlName="password" class="ui-inputgroup-addon" placeholder="Password" type="password" >
               </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Password is required" *ngIf="!formLogin.controls['password'].valid&&formLogin.controls['password'].dirty"></p-message>
+              </div>
             </div>
           </div>
         </div>
@@ -33,7 +41,7 @@
           <div class="ui-inputgroup">
             <a href="">Forgot your password?</a>
             <!--          TODO-->
-            <button id="login" pButton type="submit" label="Login" class="ui-button-success"></button>
+            <button id="login" pButton type="submit" label="Login" class="ui-button-success" [disabled]="!formLogin.valid"></button>
           </div>
         </div>
       </form>
@@ -42,12 +50,15 @@
 
   <p-overlayPanel #op2>
     <ng-template pTemplate>
-      <form method="post" (ngSubmit)="register()" [formGroup]="formRegister">
+      <form method="post" (ngSubmit)="register()" [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)">
         <div class="form-group">
           <div class="ui-g ui-fluid">
             <div class="ui-g-12">
               <div class="ui-inputgroup">
                 <input formControlName="name" class="ui-inputgroup-addon" type="text" placeholder="Name">
+              </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Name is required" *ngIf="!formRegister.controls['name'].valid&&formRegister.controls['name'].dirty"></p-message>
               </div>
             </div>
           </div>
@@ -58,6 +69,9 @@
               <div class="ui-inputgroup">
                 <input formControlName="studentId" class="ui-inputgroup-addon" type="text" placeholder="Student Id">
               </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Stunde Id is required" *ngIf="!formRegister.controls['studentId'].valid&&formRegister.controls['studentId'].dirty"></p-message>
+              </div>
             </div>
           </div>
         </div>
@@ -66,6 +80,9 @@
             <div class="ui-g-12">
               <div class="ui-inputgroup">
                 <input formControlName="emailRegister" class="ui-inputgroup-addon" type="text" placeholder="Email">
+              </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Email is required" *ngIf="!formRegister.controls['emailRegister'].valid&&formRegister.controls['emailRegister'].dirty"></p-message>
               </div>
             </div>
           </div>
@@ -76,6 +93,9 @@
               <div class="ui-inputgroup">
                 <input formControlName="psw" class="ui-inputgroup-addon"type="password" placeholder="Password" >
               </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Password is required" *ngIf="!formRegister.controls['psw'].valid&&formRegister.controls['psw'].dirty"></p-message>
+              </div>
             </div>
           </div>
         </div>
@@ -85,12 +105,15 @@
               <div class="ui-inputgroup">
                 <input formControlName="confirmPsw" class="ui-inputgroup-addon"type="password" placeholder="Confirm Password" >
               </div>
+              <div class="ui-inputgroup">
+                <p-message severity="error" text="Password is required" *ngIf="!formRegister.controls['confirmPsw'].valid&&formRegister.controls['confirmPsw'].dirty"></p-message>
+              </div>
             </div>
           </div>
         </div>
         <div class="ui-g-12 ">
           <div class="ui-inputgroup">
-            <button id="signIn" pButton class="ui-button-success" type="submit" label="Sing In"></button>
+            <button id="signIn" pButton class="ui-button-success" type="submit" label="Sing In" [disabled]="!formRegister.valid"></button>
           </div>
         </div>
       </form>

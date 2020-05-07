@@ -1,3 +1,10 @@
-<p-panel header="Godfather I" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
-Subjects
-</p-panel>
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <h2 style="font-weight:normal">Subjects</h2>
+  <hr>
+
+  <p-listbox [options]="subjects" [(ngModel)]="selectedSubject" optionLabel="name"></p-listbox>
+
+  <p>Selected Subject: {{selectedSubject ? selectedSubject.name : 'none'}}</p>
+</p-sidebar>
+
+<button pButton id="sidebar" type="button" (click)="visibleSidebar1 = true" icon="pi pi-list"></button>
