@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../models/user';
 import {MessageService} from 'primeng/api';
 import {Observable} from 'rxjs';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -20,8 +22,10 @@ export class NavbarComponent implements OnInit {
   formLogin: FormGroup;
   formRegister: FormGroup;
   user: User = new User();
+  currentUser = '';
   isSubmitted: boolean;
   isLoggedIn$: Observable<boolean>;
+  faUserCircle = faUserCircle;
 
   constructor(private service: LoginService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private messageService: MessageService) { }
@@ -30,6 +34,7 @@ export class NavbarComponent implements OnInit {
     this.formConfigRegister();
     this.formConfigLogin();
     this.isLoggedIn$ = this.service.isLoggedIn;
+    this.currentUser = this.service.getUsername();
   }
   /*Get all the values from the login form*/
   get valuesLogin() {
@@ -87,9 +92,7 @@ export class NavbarComponent implements OnInit {
 
   register(){
     if (this.formRegister.valid){
-      debugger;
       if (this.valuesRegister.psw.value === this.valuesRegister.confirmPsw.value){
-
         this.user.name = this.valuesRegister.name.value;
         this.user.email = this.valuesRegister.emailRegister.value;
         this.user.password = this.valuesRegister.psw.value;

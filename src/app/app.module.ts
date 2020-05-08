@@ -19,7 +19,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { MessagesModule } from 'primeng/messages';
 import { AnnouncementsComponent } from './announcements/announcements.component';
-import {FullCalendarModule} from 'primeng/fullcalendar';
+import { FullCalendarModule } from 'primeng/fullcalendar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToolbarModule,
@@ -49,7 +51,8 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     MessageModule,
     ToastModule,
     MessagesModule,
-    FullCalendarModule
+    FullCalendarModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

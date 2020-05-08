@@ -17,6 +17,9 @@ export class LoginService {
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
+  getUsername() {
+    return JSON.parse(localStorage.getItem('currentUser')).name;
+  }
 
   constructor(private http: HttpClient) {
     this.baseUrl = `${environment.apiUrl}/users`;
@@ -42,6 +45,7 @@ export class LoginService {
   getCurrentUserValue(): User {
     return this.currentUserSubject.value;
   }
+
   /*Login functionality*/
   login(user: User){
     const auth = 'Basic ' + btoa(user.email + ':' + user.password);

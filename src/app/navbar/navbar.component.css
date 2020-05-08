@@ -8,6 +8,16 @@
   margin-top: 80px;
 }
 
+a {
+  color: black;
+}
+::ng-deep .svg-inline--fa.fa-w-16 {
+  color: #007ad9;
+  font-size: 2rem;
+  margin-right: 5px;
+
+}
+
 
 ::ng-deep body .ui-button.ui-button-text-only .ui-button-text {
   padding: 0.429em 1em;
