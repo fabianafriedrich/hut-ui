@@ -8,8 +8,8 @@
   margin-top: 80px;
 }
 
-a {
-  color: black;
+.userProfile {
+  color: white;
 }
 ::ng-deep .svg-inline--fa.fa-w-16 {
   color: #007ad9;

@@ -18,7 +18,7 @@ export class LoginService {
     return this.loggedIn.asObservable();
   }
   getUsername() {
-    return JSON.parse(localStorage.getItem('currentUser')).name;
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   constructor(private http: HttpClient) {

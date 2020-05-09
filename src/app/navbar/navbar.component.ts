@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
   formLogin: FormGroup;
   formRegister: FormGroup;
   user: User = new User();
-  currentUser = '';
+  currentUser: User;
   isSubmitted: boolean;
   isLoggedIn$: Observable<boolean>;
   faUserCircle = faUserCircle;

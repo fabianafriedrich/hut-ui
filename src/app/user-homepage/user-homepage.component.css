@@ -1,11 +1,14 @@
-/*img{*/
-/*  position:fixed;*/
-/*  bottom:0px;*/
-/*  width: 100%;*/
-/*  margin-left: 0px;*/
-/*  margin-right: 0px;*/
-/*  padding-left: 0px;*/
-/*}*/
+.searchBox{
+  background-color: #0b4768;
+  margin-top: 25px;
+  padding: 20px;
+  color: white;
+  height: 80px;
+}
+textarea {
+  margin: 0px;
+  width:100%;
+}
 
 ::ng-deep body {
   background-image: url('../../assets/images/background2.png');

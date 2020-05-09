@@ -10,9 +10,9 @@
     <button pButton type="button" label="Login"  (click)="op1.toggle($event)" *ngIf="!(isLoggedIn$ | async)" ></button>
     <button pButton type="button" label="Register" (click)="op2.toggle($event)" *ngIf="!(isLoggedIn$ | async)" ></button>
 
-    <a href="#"  *ngIf="isLoggedIn$ | async">
+    <a class="userProfile" href="#"  *ngIf="isLoggedIn$ | async">
       <fa-icon [icon]="faUserCircle" ></fa-icon>
-      Welcome <strong>{{currentUser}}</strong>
+      Welcome <strong>{{currentUser.name}}</strong>
     </a>
     <button pButton type="button" label="Logout" (click)="onLogout()" *ngIf="isLoggedIn$ | async"></button>
 

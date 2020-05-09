@@ -1,11 +1,11 @@
 ::ng-deep body #sidebar {
   margin-right: 10px;
-  background-color: #babdbd;
+  background-color: #d6dada;
   margin-top: 20px;
 }
 
 ::ng-deep body .ui-sidebar {
-  background-color: #babdbd;
+  background-color: #d6dada;
 }
 ::ng-deep body .ui-button.ui-button-icon-only {
   width: 3em;
@@ -23,6 +23,7 @@
 }
 
 ::ng-deep body .ui-listbox .ui-listbox-list .ui-listbox-item {
-  background-color: #babdbd;
+  background-color: #d6dada;
+
 
 }

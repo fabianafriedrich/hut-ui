@@ -10,17 +10,19 @@ import { ButtonModule } from 'primeng/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { InputTextModule } from 'primeng/inputtext';
-import {MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule} from 'primeng';
+import { MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule } from 'primeng';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {PanelModule} from 'primeng/panel';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PanelModule } from 'primeng/panel';
 import { MenuComponent } from './menu/menu.component';
-import {SidebarModule} from 'primeng/sidebar';
+import { SidebarModule } from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { MessagesModule } from 'primeng/messages';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TableModule } from 'primeng/table';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     WelcomeComponent,
     UserHomepageComponent,
     MenuComponent,
-    AnnouncementsComponent
+    AnnouncementsComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ToastModule,
     MessagesModule,
     FullCalendarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
