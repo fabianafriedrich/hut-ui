@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PostService} from '../service/post.service';
 
 interface Subjects {
   name: string;
@@ -21,20 +22,23 @@ export class MenuComponent implements OnInit {
 
   selectedSsubjects: Subjects[];
 
-  constructor() {
+  constructor(private postService: PostService) {
     this.subjects = [
-      {name: 'Networking', code: 'NW'},
-      {name: 'Programming', code: 'PG'},
-      {name: 'Maths', code: 'MT'},
-      {name: 'Operation System', code: 'OS'},
-      {name: 'Web Development', code: 'WDP'},
-      {name: 'Web Design', code: 'WDG'},
-      {name: 'Databases', code: 'DB'}
-
-  ];
+      {name: 'Networking', code: 'NETWORKING'},
+      {name: 'Programming', code: 'PROGRAMMING'},
+      {name: 'Maths', code: 'MATHS'},
+      {name: 'Operation System', code: 'OPERATION_SYSTEM'},
+      {name: 'Web Development', code: 'WEB_DEVELOPMENT'},
+      {name: 'Web Design', code: 'WEB_DESIGN'},
+      {name: 'Databases', code: 'DATABASE'}
+    ];
   }
 
   ngOnInit(): void {
+  }
+
+  tableListBoxSelectEvent(event){
+    this.visibleSidebar1 = false;
   }
 
 }

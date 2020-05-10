@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { InputTextModule } from 'primeng/inputtext';
-import { MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule } from 'primeng';
+import {DropdownModule, MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule} from 'primeng';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
@@ -56,7 +56,8 @@ import { PostsComponent } from './posts/posts.component';
     MessagesModule,
     FullCalendarModule,
     FontAwesomeModule,
-    TableModule
+    TableModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
