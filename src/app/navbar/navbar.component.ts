@@ -6,6 +6,7 @@ import {User} from '../models/user';
 import {MessageService} from 'primeng/api';
 import {Observable} from 'rxjs';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import {MenuItem} from 'primeng';
 
 
 
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit {
   isSubmitted: boolean;
   isLoggedIn$: Observable<boolean>;
   faUserCircle = faUserCircle;
+  menuOptions: MenuItem[];
 
   constructor(private service: LoginService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private messageService: MessageService) { }
@@ -35,6 +37,20 @@ export class NavbarComponent implements OnInit {
     this.formConfigLogin();
     this.isLoggedIn$ = this.service.isLoggedIn;
     this.currentUser = this.service.getUsername();
+    this.menuOptions = [{
+      label: 'Menu',
+      items: [
+        {label: 'Home Page', url: 'users/homepage', icon: 'pi pi-home'},
+        {label: 'Dashboard', icon: 'pi pi-th-large'}
+      ]
+    },
+      {
+        label: 'User',
+        items: [
+          {label: 'User Acount', url: 'users/profile', icon: 'pi pi-fw pi-user-edit'},
+          {label: 'Logout User',  command: () => this.onLogout(), icon: 'pi pi-fw pi-user-minus'}
+        ]
+      }];
   }
   /*Get all the values from the login form*/
   get valuesLogin() {

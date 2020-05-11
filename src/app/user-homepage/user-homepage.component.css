@@ -10,11 +10,4 @@ textarea {
   width:100%;
 }
 
-::ng-deep body {
-  background-image: url('../../assets/images/background2.png');
-  background-attachment: fixed;
-  background-position: bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 

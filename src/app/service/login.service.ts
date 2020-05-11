@@ -12,7 +12,7 @@ export class LoginService {
   baseUrl: string;
   public currentUser: Observable<User>;
   private currentUserSubject: BehaviorSubject<User>;
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  public loggedIn = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();

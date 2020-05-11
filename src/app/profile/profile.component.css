@@ -1,0 +1,9 @@
+::ng-deep .p-grid{
+  margin-left: 10%;
+  margin-top: 2.5%;
+}
+
+#profilePic{
+  width: 150px;
+  height: 50%;
+}

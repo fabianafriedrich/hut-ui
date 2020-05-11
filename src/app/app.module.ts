@@ -10,11 +10,10 @@ import { ButtonModule } from 'primeng/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { InputTextModule } from 'primeng/inputtext';
-import {DropdownModule, MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule} from 'primeng';
+import {DropdownModule, MenuModule, MessageModule, OverlayPanelModule, PanelMenuModule, ToastModule} from 'primeng';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
-import { MenuComponent } from './menu/menu.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { MessagesModule } from 'primeng/messages';
@@ -23,6 +22,7 @@ import { FullCalendarModule } from 'primeng/fullcalendar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableModule } from 'primeng/table';
 import { PostsComponent } from './posts/posts.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -31,9 +31,9 @@ import { PostsComponent } from './posts/posts.component';
     NavbarComponent,
     WelcomeComponent,
     UserHomepageComponent,
-    MenuComponent,
     AnnouncementsComponent,
-    PostsComponent
+    PostsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,8 @@ import { PostsComponent } from './posts/posts.component';
     FullCalendarModule,
     FontAwesomeModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
