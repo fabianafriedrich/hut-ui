@@ -1,13 +1,13 @@
 import {User} from './user';
+import { Post } from './post';
 
-export class Post {
+export class Answer {
   id: number;
   creationDate: Date;
-  title = '';
-  description = '';
-  status: boolean;
+  correctAnswer: boolean;
+  text = '';
   dislikes: number;
   likes: number;
-  subject: string;
+  post: Post;
   user: User;
 }

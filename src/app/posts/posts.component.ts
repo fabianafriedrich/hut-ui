@@ -1,32 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
 import {Post} from '../models/post';
-import {SelectItem} from 'primeng';
+import { OverlayPanel, SelectItem} from 'primeng';
+import {Answer} from '../models/answer';
+import {AnswerService} from '../service/answer.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
 
   posts: Post[];
   cols: any[];
-
-  /*Menu side-bar*/
-  display: boolean;
+  answers: Answer[];
+  answersByPost: Answer[] = new Array();
+  display1: boolean;
+  text1 = 'test sfg';
   subjectArray: SelectItem[];
+  selectedPost: Post;
 
-  constructor(private service: PostService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private service: PostService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
     this.listAll();
-
+    this.getAnswers();
     this.cols = [
-      { field: 'title', header: 'Questions' },
-      { field: 'user', header: 'Posted By' },
-      { field: 'subjects', header: 'Subject' },
-      { field: 'date', header: 'Date' }
+      { field: 'view'},
+      { field: 'title'},
+      { field: 'user'},
+      { field: 'subjects'},
+      { field: 'date'}
     ];
 
     this.subjectArray = [
@@ -41,6 +47,10 @@ export class PostsComponent implements OnInit {
     ];
   }
 
+  showBasicDialog(event, element) {
+    element.hide(event);
+    this.display1 = true;
+  }
   /*List all posts*/
   listAll(){
     this.service.listAll()
@@ -48,9 +58,22 @@ export class PostsComponent implements OnInit {
         this.posts = result
       );
   }
+  /*Get all Answers*/
+  getAnswers(){
+    this.answerService.getAnswers()
+      .subscribe(result =>
+        this.answers = result
+      );
+  }
 
-  // tableListBoxSelectEvent(event){
-  //   this.selectedSubject = event.value.code;
-  //   this.visibleSidebar1 = false;
-  // }
+  selectPost(event, post: Post, overlaypanel: OverlayPanel) {
+    this.answersByPost = new Array();
+    this.selectedPost = post;
+    this.answers.forEach(answer => {
+      if (answer.post.id === this.selectedPost.id){
+        this.answersByPost.push(answer);
+      }
+    });
+    overlaypanel.toggle(event);
+  }
 }
