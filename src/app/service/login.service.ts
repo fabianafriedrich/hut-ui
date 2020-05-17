@@ -27,11 +27,6 @@ export class LoginService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  /*Post to create new user*/
-  create(user: any) {
-    return this.http.post(this.baseUrl + '/add', user, this.getHeaders(localStorage.getItem('auth')));
-  }
-
   /*Creating Headers to sent into the HTTP request*/
   getHeaders(auth){
     return {

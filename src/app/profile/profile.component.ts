@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProfileService} from '../service/profile.service';
@@ -12,11 +12,14 @@ import {MessageService} from 'primeng/api';
   providers: [MessageService]
 
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
+  formPassword: FormGroup;
   user: User;
   isSubmitted: boolean;
+  updateValid = false;
+  readonly = true;
 
 
   constructor(private service: ProfileService, private formBuilder: FormBuilder,
@@ -28,50 +31,79 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.formConfig();
+    this.formChangePassword();
   }
   /*Get all the values from the login form*/
   get values() {
     return this.form.controls;
-
   }
+  /*Get all the values from the login form*/
+  get valuesPasswords() {
+    return this.formPassword.controls;
+  }
+  /*Form fields validation*/
+  formChangePassword() {
+    this.formPassword = this.formBuilder.group({
+      password: [null, Validators.required],
+      newPassword: [null, Validators.required],
+    });
+  }
+
   /*Form fields validation*/
   formConfig() {
     this.form = this.formBuilder.group({
-      name: [this.user.name, Validators.required],
-      email: [this.user.email, Validators.required],
-      newPsw: [null, Validators.required],
-      confirmNewPsw: [null, Validators.required]
+      name: [null],
+      email: [null],
+      studentId: [null],
     });
+  }
+  updateCheck(){
+    if (this.values.name.value.touch || this.values.name.value.dirty
+      || this.values.email.value.touch || this.values.email.value.dirty){
+      this.updateValid = true;
+    }
   }
   onSubmit(value: string) {
     this.isSubmitted = true;
   }
   update(){
-    if (this.form.valid){
-      if (this.values.newPsw.value === this.values.confirmNewPsw.value){
-        this.user.name = this.values.name.value;
-        this.user.email = this.values.email.value;
-        this.user.password = this.values.newPsw.value;
-        this.service.update(this.user).subscribe(result => {
-            this.form.reset();
-            this.messageService.add({
-              severity: 'info',
-              summary: 'Success',
-              detail: 'Success Updating User',
-            });
-          },
-          error => {
-            return false;
-          });
+    if (this.values.name.value !== this.user.name && this.values.name.value !== null && this.values.name.value !== ''){
+      this.user.name = this.values.name.value;
+    }
+    if (this.values.email.value !== this.user.email && this.values.email.value !== null && this.values.email.value !== '') {
+      this.user.email = this.values.email.value;
+    }
+    if (this.valuesPasswords.password.value !== null && this.valuesPasswords.newPassword.value !== null ){
+      if (this.valuesPasswords.password.value === this.valuesPasswords.newPassword.value){
+        this.user.password = this.valuesPasswords.password.value;
       }else {
         this.messageService.add({
           severity: 'error',
-          summary: 'Passwords don not match',
-          detail: 'Update password is invalid',
+          summary: 'Passwords do not match',
+          detail: 'Passwords invalid',
         });
+        return false;
       }
     }
+    this.service.update(this.user).subscribe(result => {
+        this.form.reset();
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Success',
+          detail: 'Success Updating User',
+        });
+      },
+      error => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Invalid Inputs',
+          detail: 'Information is invalid',
+        });
+        return false;
+      });
+  }
 
+  ngOnDestroy(): void {
   }
 
 }

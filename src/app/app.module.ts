@@ -17,7 +17,6 @@ import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { MessagesModule } from 'primeng/messages';
-import { AnnouncementsComponent } from './announcements/announcements.component';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableModule } from 'primeng/table';
@@ -27,6 +26,8 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {OrderListModule} from 'primeng/orderlist';
 import {EditorModule} from 'primeng/editor';
 import {DialogModule} from 'primeng/dialog';
+import { EditorComponent } from './editor/editor.component';
+import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 
 
 @NgModule({
@@ -35,9 +36,10 @@ import {DialogModule} from 'primeng/dialog';
     NavbarComponent,
     WelcomeComponent,
     UserHomepageComponent,
-    AnnouncementsComponent,
     PostsComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditorComponent,
+    FullcalendarComponent
   ],
     imports: [
         BrowserModule,

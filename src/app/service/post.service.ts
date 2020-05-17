@@ -16,6 +16,7 @@ export class PostService {
 
   /*Get posts from the API passing the auth token by parameter */
   listAll() {
+    debugger
     return this.http.get<Array<Post>>(this.baseUrl,
       this.getHeaders(localStorage.getItem('auth')));
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
-import {Post} from '../models/post';
+import { Post } from '../models/post';
 import { OverlayPanel, SelectItem} from 'primeng';
 import {Answer} from '../models/answer';
 import {AnswerService} from '../service/answer.service';
@@ -12,37 +12,39 @@ import {AnswerService} from '../service/answer.service';
 })
 export class PostsComponent implements OnInit {
 
+  // tslint:disable-next-line:max-line-length
+  constructor(private service: PostService, private answerService: AnswerService) {
+  }
+
   posts: Post[];
   cols: any[];
   answers: Answer[];
   answersByPost: Answer[] = new Array();
   display1: boolean;
-  text1 = 'test sfg';
+  display: boolean;
   subjectArray: SelectItem[];
   selectedPost: Post;
 
-  // tslint:disable-next-line:max-line-length
-  constructor(private service: PostService, private answerService: AnswerService) { }
-
   ngOnInit(): void {
+    console.log(this.listAll());
     this.listAll();
     this.getAnswers();
     this.cols = [
-      { field: 'view'},
-      { field: 'title'},
-      { field: 'user'},
-      { field: 'subjects'},
-      { field: 'date'}
+      {field: 'view'},
+      {field: 'title'},
+      {field: 'user'},
+      {field: 'subjects'},
+      {field: 'date'}
     ];
 
     this.subjectArray = [
       {label: 'All', value: null},
-      {label: 'Networking', value: 'NETWORKING'},
-      {label: 'Programming', value: 'PROGRAMMING'},
+      {label: 'Network', value: 'NETWORKING'},
+      {label: 'Prog', value: 'PROGRAMMING'},
       {label: 'Maths', value: 'MATHS'},
-      {label: 'Operation System', value: 'OPERATION_SYSTEM'},
-      {label: 'Web Development', value: 'WEB_DEVELOPMENT'},
-      {label: 'Web Design', value: 'WEB_DESIGN'},
+      {label: 'OS', value: 'OPERATION_SYSTEM'},
+      {label: 'Web Dev', value: 'WEB_DEVELOPMENT'},
+      {label: 'Design', value: 'WEB_DESIGN'},
       {label: 'Databases', value: 'DATABASE'}
     ];
   }
@@ -51,15 +53,20 @@ export class PostsComponent implements OnInit {
     element.hide(event);
     this.display1 = true;
   }
+  showBasicDialog2() {
+    this.display = true;
+  }
+
   /*List all posts*/
-  listAll(){
+  listAll() {
     this.service.listAll()
       .subscribe(result =>
         this.posts = result
       );
   }
+
   /*Get all Answers*/
-  getAnswers(){
+  getAnswers() {
     this.answerService.getAnswers()
       .subscribe(result =>
         this.answers = result
@@ -70,7 +77,7 @@ export class PostsComponent implements OnInit {
     this.answersByPost = new Array();
     this.selectedPost = post;
     this.answers.forEach(answer => {
-      if (answer.post.id === this.selectedPost.id){
+      if (answer.post.id === this.selectedPost.id) {
         this.answersByPost.push(answer);
       }
     });

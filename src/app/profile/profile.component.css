@@ -6,4 +6,8 @@
 #profilePic{
   width: 150px;
   height: 50%;
+  margin-left: 70%;
+}
+.profileHeader{
+  text-align: center;
 }

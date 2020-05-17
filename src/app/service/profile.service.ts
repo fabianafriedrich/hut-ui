@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
 
 @Injectable({
@@ -26,7 +26,10 @@ export class ProfileService {
 
   /*Register functionality*/
   update(user: User) {
-    return this.http.put(this.baseUrl + '/registration', user,
+    localStorage.removeItem('currentUser');
+    localStorage.setItem('currentUser', JSON.stringify(user.valueOf()));
+
+    return this.http.put(this.baseUrl + '/update', user,
       this.getHeaders(localStorage.getItem('auth')));
   }
 }

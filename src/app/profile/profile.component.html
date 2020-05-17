@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 
-
+<p-toast></p-toast>
+<header >
+  <h2 class="profileHeader">User Profile </h2>
+</header>
 <div class="p-grid nested-grid">
   <div class="p-col-4">
     <div class="box box-stretched">
@@ -11,54 +14,67 @@
   <div class="p-col-8">
     <div class="p-grid">
       <form method="put" (ngSubmit)="update()" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <div class="form-group">
-          <div class="p-col-12">
-            <div class="ui-inputgroup">
-              <input formControlName="name" class="ui-inputgroup-addon" type="text" placeholder="Name">
-            </div>
-            <div class="ui-inputgroup">
-              <p-message severity="error" text="Name is required" *ngIf="!form.controls['name'].valid&&form.controls['name'].dirty"></p-message>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="p-col-12">
-            <div class="ui-inputgroup">
-              <input formControlName="email" class="ui-inputgroup-addon" type="text" placeholder="Email">
-            </div>
-            <div class="ui-inputgroup">
-              <p-message severity="error" text="Email is required" *ngIf="!form.controls['email'].valid&&form.controls['email'].dirty"></p-message>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="p-col-12 ">
-            <div class="ui-inputgroup">
-              <input formControlName="newPsw" class="ui-inputgroup-addon"type="password" placeholder="Password" >
-            </div>
-            <div class="ui-inputgroup">
-              <p-message severity="error" text="Password is required" *ngIf="!form.controls['newPsw'].valid&&form.controls['newPsw'].dirty"></p-message>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="p-col-12">
-            <div class="ui-inputgroup">
-              <input formControlName="confirmNewPsw" class="ui-inputgroup-addon"type="password" placeholder="Confirm Password" >
-            </div>
-            <div class="ui-inputgroup">
-              <p-message severity="error" text="Password is required" *ngIf="!form.controls['confirmNewPsw'].valid&&form.controls['confirmNewPsw'].dirty"></p-message>
-            </div>
-          </div>
+        <div class="p-col-12">
+          <span class="ui-float-label">
+             <input pInputText formControlName="name" type="text">
+              <label for="float-input">{{user.name}}</label>
+          </span>
         </div>
         <div class="p-col-12">
-          <div class="ui-inputgroup">
-            <button id="update" pButton class="ui-button-success" type="submit" label="Update Profile" [disabled]="!form.valid"></button>
-          </div>
+          <span class="ui-float-label">
+            <input [readOnly]="readonly" [attr.disabled]="true" placeholder="Email: {{user.email}}" pInputText formControlName="email" >
+          </span>
+        </div>
+        <div class="p-col-12">
+          <span class="ui-float-label">
+            <input [readOnly]="readonly" placeholder=" Student ID: {{user.studentId}}" [attr.disabled]="true" pInputText formControlName="studentId" >
+          </span>
+        </div>
+
+        <div class="p-col-12">
+          <button id="update" pButton class="ui-button-success" type="submit" label="Update Profile" [disabled]="!form.touched"></button>
         </div>
       </form>
-
+      <div class="p-col-12">
+        <button pButton class="ui-button-success" label="Change Password" (click)="op1.toggle($event)"></button>
+      </div>
     </div>
   </div>
 </div>
+
+<p-overlayPanel #op1>
+<ng-template pTemplate>
+  <form method="put" (ngSubmit)="update()" [formGroup]="formPassword" (ngSubmit)="onSubmit(formPassword.value)">
+    <div class="form-group">
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ">
+          <div class="ui-inputgroup">
+            <input formControlName="password" class="ui-inputgroup-addon"type="password" placeholder="New Password" >
+          </div>
+          <div class="ui-inputgroup">
+            <p-message severity="error" text="Password is required" *ngIf="!formPassword.controls['password'].valid&&formPassword.controls['password'].dirty"></p-message>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ">
+          <div class="ui-inputgroup">
+            <input formControlName="newPassword" class="ui-inputgroup-addon"type="password" placeholder="Confirm Password" >
+          </div>
+          <div class="ui-inputgroup">
+            <p-message severity="error" text="Password is required" *ngIf="!formPassword.controls['newPassword'].valid&&formPassword.controls['newPassword'].dirty"></p-message>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 ">
+      <div class="ui-inputgroup">
+        <button pButton class="ui-button-success" type="submit" label="Confirm" [disabled]="!formPassword.valid"></button>
+      </div>
+    </div>
+  </form>
+</ng-template>
+</p-overlayPanel>
 

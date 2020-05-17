@@ -112,6 +112,7 @@ export class NavbarComponent implements OnInit {
         this.user.name = this.valuesRegister.name.value;
         this.user.email = this.valuesRegister.emailRegister.value;
         this.user.password = this.valuesRegister.psw.value;
+        this.user.studentId = this.valuesRegister.studentId.value;
         this.service.register(this.user).subscribe(result => {
             this.formRegister.reset();
             this.messageService.add({
@@ -126,7 +127,7 @@ export class NavbarComponent implements OnInit {
       }else {
         this.messageService.add({
           severity: 'error',
-          summary: 'Passwords don not match',
+          summary: 'Passwords do not match',
           detail: 'Register is invalid',
         });
       }

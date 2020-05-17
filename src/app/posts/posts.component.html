@@ -1,9 +1,19 @@
 <p-table #dt [columns]="cols" [value]="posts" [paginator]="true" [rows]="5" [responsive]="true" >
   <ng-template pTemplate="caption">
-    <div style="text-align: right">
-      <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-      <input type="text" pInputText placeholder="What are you looking for?"
-             (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    <div class="p-grid">
+      <div class="p-col-fixed" style="width:100px">
+        <div class="box">
+          <button pButton type="button" (click)="showBasicDialog2()"  title="Make a Question" label="Ask"></button>        </div>
+      </div>
+      <div class="p-col">
+        <div class="box">
+          <div style="text-align: right">
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText placeholder="What are you looking for?"
+                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+        </div>
+      </div>
     </div>
   </ng-template>
 
@@ -18,7 +28,7 @@
 
     <tr>
       <th *ngFor="let col of columns" [ngSwitch]="col.field">
-        <p-dropdown *ngSwitchCase="'subjects'" [options]="subjectArray"  (onChange)="dt.filter($event.value, col.field, 'equals')" styleClass="ui-column-filter"></p-dropdown>
+        <p-dropdown *ngSwitchCase="'subjects'" [options]="subjectArray" [style]="{'minWidth':'110px', 'width': '110px'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
       </th>
     </tr>
   </ng-template>
@@ -77,9 +87,34 @@
 </p-overlayPanel>
 
 <p-dialog header="New answer" [(visible)]="display1" [style]="{width: '50vw'}" [baseZIndex]="10000">
-  <p-editor [(ngModel)]="text1"  [style]="{'height':'320px'}"> </p-editor>
+  <app-editor></app-editor>
   <p-footer>
     <button type="button" pButton icon="pi pi-check" (click)="display1=false" label="Submit"></button>
     <button type="button" pButton icon="pi pi-times" (click)="display1=false" label="Cancel" class="ui-button-secondary"></button>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Make a question" [(visible)]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <br>
+  <div class="p-grid">
+    <div class="p-col">
+      <div class="box">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" pInputText>
+        <label for="float-input">Title</label>
+        </span>
+      </div>
+    </div>
+    <div class="p-col">
+      <div class="box">
+        Select Subject:
+        <p-dropdown [options]="subjectArray" placeholder="Select a Subject" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+  </div>
+  <app-editor></app-editor>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Submit"></button>
+    <button type="button" pButton icon="pi pi-times" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
   </p-footer>
 </p-dialog>

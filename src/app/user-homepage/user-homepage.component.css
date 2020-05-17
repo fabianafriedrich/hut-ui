@@ -10,4 +10,16 @@ textarea {
   width:100%;
 }
 
+.row {
+  display: flex; /* equal height of the children */
+}
 
+.colPosts {
+  flex: 2.5; /* additionally, equal width */
+  padding: 1em;
+}
+
+.colCalendar {
+  flex: 1.5; /* additionally, equal width */
+  padding: 1em;
+}
