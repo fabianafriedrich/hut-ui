@@ -19,6 +19,12 @@ export class AnswerService {
       this.getHeaders(localStorage.getItem('auth')));
   }
 
+  /*create new answer functionality*/
+  createAnswer(answer: Answer) {
+    return this.http.post(this.baseUrl, answer,
+      this.getHeaders(localStorage.getItem('auth')));
+  }
+
   /*Creating Headers to sent into the HTTP request*/
   getHeaders(auth){
     return {

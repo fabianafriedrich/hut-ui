@@ -41,7 +41,9 @@ export class NavbarComponent implements OnInit {
       label: 'Menu',
       items: [
         {label: 'Home Page', url: 'users/homepage', icon: 'pi pi-home'},
-        {label: 'Dashboard', icon: 'pi pi-th-large'}
+        {label: 'Dashboard', icon: 'pi pi-th-large'},
+        {label: 'About Us', url: 'users/about-us', icon: 'pi pi-info'}
+
       ]
     },
       {

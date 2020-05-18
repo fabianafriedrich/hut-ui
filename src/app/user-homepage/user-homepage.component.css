@@ -18,8 +18,12 @@ textarea {
   flex: 2.5; /* additionally, equal width */
   padding: 1em;
 }
-
+.announcements{
+  background-color: #0b4768;
+  color: white;
+}
 .colCalendar {
   flex: 1.5; /* additionally, equal width */
   padding: 1em;
+  background-color: white;
 }

@@ -5,9 +5,9 @@ export class Post {
   creationDate: Date;
   title = '';
   description = '';
-  status: boolean;
+  status: string;
   dislikes: number;
   likes: number;
-  subject: string;
+  subjects: string;
   user: User;
 }

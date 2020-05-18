@@ -27,9 +27,6 @@ export class FullcalendarComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-    // this.eventService.getEvents().subscribe(events => {
-    //   this.events = events;
-    // });
     this.showModal = false;
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -40,10 +37,15 @@ export class FullcalendarComponent implements OnInit {
         right: 'month,agendaWeek,agendaDay'
       },
       events: [
-        {title: 'Angular classes', date: '2020-05-01T16:00:00', description: 'This is a Angular Course'},
+        {title: 'Angular classes', date: new Date(), description: 'This is a Angular Course'},
         {title: 'Building an Application with Spring Boot', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
-        {title: 'Scrum meeting', date: '2020-05-16T16:00:00', description: 'Scrum meeting at 4pm'},
-        {title: 'Java meeting', date: '2020-05-16T13:00:00', description: 'Java Interview today at 1pm'}
+        {title: 'Scrum meeting', date: '2020-07-16T16:00:00', description: 'Scrum meeting at 4pm'},
+        {title: 'Java meeting', date: '2020-05-16T13:00:00', description: 'Java Interview today at 1pm'},
+
+        {title: 'Angular classes', date: new Date(), description: 'This is a Angular Course'},
+        {title: 'Building an Application with Spring Boot', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
+        {title: 'Scrum meeting', date: '2020-06-16T16:00:00', description: 'Scrum meeting at 4pm'},
+        {title: 'Java meeting', date: '2020-06-16T13:00:00', description: 'Java Interview today at 1pm'}
         ],
       editable: true,
       eventClick: this.handleDateClick.bind(this)

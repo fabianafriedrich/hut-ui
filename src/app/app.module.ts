@@ -26,8 +26,8 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {OrderListModule} from 'primeng/orderlist';
 import {EditorModule} from 'primeng/editor';
 import {DialogModule} from 'primeng/dialog';
-import { EditorComponent } from './editor/editor.component';
 import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -38,8 +38,8 @@ import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
     UserHomepageComponent,
     PostsComponent,
     ProfileComponent,
-    EditorComponent,
-    FullcalendarComponent
+    FullcalendarComponent,
+    AboutUsComponent
   ],
     imports: [
         BrowserModule,
