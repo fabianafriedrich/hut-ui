@@ -12,7 +12,7 @@ import {MessageService} from 'primeng/api';
   providers: [MessageService]
 
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
 
   form: FormGroup;
   formPassword: FormGroup;
@@ -101,9 +101,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
         });
         return false;
       });
-  }
-
-  ngOnDestroy(): void {
   }
 
 }

@@ -8,4 +8,5 @@ export class User {
   role: Role;
   points: number;
   token = '';
+  mailMessage = '';
 }

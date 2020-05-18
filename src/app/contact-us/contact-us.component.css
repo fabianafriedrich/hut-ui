@@ -1,0 +1,12 @@
+.form-group{
+  margin: 2%;
+}
+.contact{
+  margin-left: 2%;
+  height: 80px;
+  width: 50%;
+}
+::ng-deep .p-align-stretch {
+  margin-left: 5%;
+  align-items: stretch;
+}

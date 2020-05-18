@@ -19,11 +19,15 @@ textarea {
   padding: 1em;
 }
 .announcements{
+  text-align: center;
+  height: 40px;
   background-color: #0b4768;
   color: white;
+  margin-bottom: 5%;
 }
 .colCalendar {
   flex: 1.5; /* additionally, equal width */
   padding: 1em;
   background-color: white;
+  height: 5%;
 }

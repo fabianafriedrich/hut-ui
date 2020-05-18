@@ -6,6 +6,7 @@ import {User} from '../models/user';
 import {MessageService} from 'primeng/api';
 import {Observable} from 'rxjs';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
 import {MenuItem} from 'primeng';
 
 
@@ -41,8 +42,10 @@ export class NavbarComponent implements OnInit {
       label: 'Menu',
       items: [
         {label: 'Home Page', url: 'users/homepage', icon: 'pi pi-home'},
-        {label: 'Dashboard', icon: 'pi pi-th-large'},
-        {label: 'About Us', url: 'users/about-us', icon: 'pi pi-info'}
+        {label: 'Dashboard', url: 'users/dashboard', icon: 'pi pi-th-large'},
+        {label: 'About Us', url: 'users/about-us', icon: 'pi pi-info'},
+        {label: 'Contact Us', url: 'users/contact-us', icon: 'pi pi-envelope' }
+
 
       ]
     },
