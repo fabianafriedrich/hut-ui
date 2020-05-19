@@ -60,8 +60,7 @@ export class LoginService {
 
   /*Register functionality*/
   register(user: User) {
-    return this.http.post(this.baseUrl + '/registration', user,
-      this.getHeaders(localStorage.getItem('auth')));
+    return this.http.post(this.baseUrl + '/registration', user);
   }
 
   logOut() {
@@ -69,6 +68,7 @@ export class LoginService {
   request.subscribe(
       data => {
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('auth');
         this.currentUserSubject.next(null);
         this.loggedIn.next(false);
       });
