@@ -57,6 +57,7 @@ export class LoginService {
       });
     return request;
   }
+
   /*Register functionality*/
   register(user: User) {
     return this.http.post(this.baseUrl + '/registration', user,
