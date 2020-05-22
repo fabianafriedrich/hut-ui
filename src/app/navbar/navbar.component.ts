@@ -127,6 +127,11 @@ export class NavbarComponent implements OnInit {
             });
           },
           error => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'User already exists',
+              detail: 'Cannot register because the user already exists',
+            });
             return false;
           });
       }else {
