@@ -1,5 +1,89 @@
 <app-navbar></app-navbar>
-<div class="about">
-  <h2>About HUT</h2>
-  <p>HUT is an online platform created by third year students at CCT College Dublin as the Final Project for the Bachelor of Science in Information Technology. The initial idea for the project came up during a meeting in a Café where we were all debating what would be the project theme and final product. During the first group meetings in college, our group came up with several good ideas but what would benefit us all, as students, would be something related to Online Learning because during our last academic year, a global pandemic begins leaving Educational institutions with no option but adhere to online learning tools.</p>
+<div class="p-grid">
+  <div class="p-col">
+    <div class="box">
+      <h3>About HUT</h3>
+      <p class="info">HUT is an online platform created by third year students at CCT College Dublin as the Final Project for the
+        Bachelor of Science in Information Technology. The initial idea for the project came up during a meeting in a
+        Café where we were all debating what would be the project theme and final product. During the first group
+        meetings in college, our group came up with several good ideas but what would benefit us all, as students,
+        would be something related to Online Learning because during our last academic year, a global pandemic begins
+        leaving Educational institutions with no option but adhere to online learning tools.</p>
+
+      <h3 class="team">About Our Team</h3>
+      <p class="info">
+        We at HUT are students from CCT college the institution responsible for our high quality education which
+        leaded us upon idealization of this amazing web application. As students we developed a web site responsible
+        to attend students on their needs from the basic to high level among the subjects implemented by the college.
+        Passionate for technology, we all had a opportunity to bring from each one of us our best tools to work hard
+        and end up with good results and prestige. Obviously, seeking for more opportunities and ideas to keep our
+        working growing  and expanding.
+      </p>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="box">
+      <div class="team">
+        <h3>Meet Our Team</h3>
+        <button type="button" (click)="show()" pButton  icon="pi pi-plus" label="Show"></button>
+      </div>
+    </div>
+  </div>
 </div>
+<p-dialog header="Our Team" [(visible)]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div class="p-grid">
+    <div class="p-col-6">
+      <div class="box">
+        <div class="p-grid nested-grid">
+          <div class="p-col-4">
+            <img class="teamImg" src="../../assets/images/fabiana.jpg" alt="Fabiana Friedrich Picture">
+          </div>
+          <div class="p-col-8">
+            <p><strong>Fabiana Friedrich</strong> <br> <i>Co-Founder & Full Stack Developer</i> <br> Fabiana Friedrich is a Junior Developer,  Bachelor of Science in Information Technology at the CCT College. She is passionate about software development and techonology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="box">
+        <div class="p-grid nested-grid">
+          <div class="p-col-4">
+            <img class="teamImg" src="../../assets/images/vinicius.jpeg" alt="Vinicus Picture">
+          </div>
+          <div class="p-col-8">
+            <p><strong>Vinicius Martins</strong> <br> <i>Co-Founder & Researcher</i> <br> Vinicius is a Researcher at HUT.  He is a easy-going person loving any caring for everything relate to technology</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="box">
+        <div class="p-grid nested-grid">
+          <div class="p-col-4">
+            <img class="teamImg" src="../../assets/images/celso.jpeg" alt="Celso Picture">
+          </div>
+          <div class="p-col-8">
+            <p><strong>Celso Martins</strong> <br> <i>Co-Founder & Graphic Designer</i> <br> Celso Martins is the Web and Graphic Designer of HUT. He is passionate about technology and games development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="box">
+        <div class="p-grid nested-grid">
+          <div class="p-col-4">
+            <img class="teamImg" src="../../assets/images/guilherme.jpeg" alt="Guilherme Picture">
+          </div>
+          <div class="p-col-8">
+            <p><strong>Guilherme Tenorio</strong> <br> <i>Co-Founder & Researcher </i> Guilherme is a Co-Founder & Reseacher at HUT. He is a down-to-earth person passionate about technology and music. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+
+<footer>
+  <p>@2020 HUT - Help Us Tech</p>
+</footer>

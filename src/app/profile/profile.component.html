@@ -16,7 +16,7 @@
       <form method="put" (ngSubmit)="update()" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
         <div class="p-col-12">
           <span class="ui-float-label">
-             <input pInputText formControlName="name" type="text">
+             <input id="float-input" pInputText formControlName="name" type="text">
               <label for="float-input">{{user.name}}</label>
           </span>
         </div>
@@ -44,7 +44,7 @@
 
 <p-overlayPanel #op1>
 <ng-template pTemplate>
-  <form method="put" (ngSubmit)="update()" [formGroup]="formPassword" (ngSubmit)="onSubmit(formPassword.value)">
+  <form method="put" (ngSubmit)="updatePassword()" [formGroup]="formPassword" (ngSubmit)="onSubmit(formPassword.value)">
     <div class="form-group">
       <div class="ui-g ui-fluid">
         <div class="ui-g-12 ">
@@ -78,3 +78,6 @@
 </ng-template>
 </p-overlayPanel>
 
+<footer>
+  <p>@2020 HUT - Help Us Tech</p>
+</footer>

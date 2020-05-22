@@ -21,6 +21,7 @@ export class FullcalendarComponent implements OnInit {
 
   eventTitle: string;
   eventDescription: string;
+  eventAuthor: string;
 
   @ViewChild('fc') fc: FullCalendar;
 
@@ -37,15 +38,24 @@ export class FullcalendarComponent implements OnInit {
         right: 'month,agendaWeek,agendaDay'
       },
       events: [
-        {title: 'Angular classes', date: new Date(), description: 'This is a Angular Course'},
-        {title: 'Building an Application with Spring Boot', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
-        {title: 'Scrum meeting', date: '2020-07-16T16:00:00', description: 'Scrum meeting at 4pm'},
-        {title: 'Java meeting', date: '2020-05-16T13:00:00', description: 'Java Interview today at 1pm'},
+        {title: 'Angular classes', author: 'Fabiana Friedrich', date: new Date(), description: 'This is a Angular Course'},
+        {title: 'Building an Application with Spring Boot', author: 'Mikhail', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
+        {title: 'Java meeting', author: 'Graham', date: '2020-05-16T13:00:00', description: 'Java Interview today at 1pm'},
 
-        {title: 'Angular classes', date: new Date(), description: 'This is a Angular Course'},
-        {title: 'Building an Application with Spring Boot', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
-        {title: 'Scrum meeting', date: '2020-06-16T16:00:00', description: 'Scrum meeting at 4pm'},
-        {title: 'Java meeting', date: '2020-06-16T13:00:00', description: 'Java Interview today at 1pm'}
+        {title: 'Angular classes', author: 'Fabiana Friedrich', date: '2020-06-20T16:00:00', description: 'This is a Angular Course'},
+        {title: 'Building an Application with Spring Boot', author: 'Mikhail', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
+        {title: 'Scrum meeting', date: '2020-06-16T16:00:00', author: 'Graham' , description: 'Scrum meeting at 4pm'},
+        {title: 'Java meeting', date: '2020-06-16T13:00:00', author: 'Amilcar Aponte' , description: 'Java Interview today at 1pm'},
+
+        {title: 'Angular classes', author: 'Fabiana Friedrich', date: '2020-07-20T16:00:00', description: 'This is a Angular Course'},
+        {title: 'Building an Application with Spring Boot', author: 'Mikhail', date: '2020-06-11T15:30:00', description: 'Start building an new app'},
+        {title: 'Scrum meeting', date: '2020-07-10T16:00:00', author: 'Graham' , description: 'Scrum meeting at 4pm'},
+        {title: 'Java meeting', date: '2020-07-16T13:00:00', author: 'Amilcar Aponte' , description: 'Java Interview today at 1pm'},
+
+        {title: 'Angular classes', author: 'Fabiana Friedrich', date: new Date(), description: 'This is a Angular Course'},
+        {title: 'Building an Application with Spring Boot', author: 'Mikhail', date: '2020-05-11T15:30:00', description: 'Start building an new app'},
+        {title: 'Scrum meeting', date: '2020-06-29T16:00:00', author: 'Graham' , description: 'Scrum meeting at 4pm'},
+        {title: 'Java meeting', date: '2020-06-24T13:00:00', author: 'Amilcar Aponte' , description: 'Java Interview today at 1pm'}
         ],
       editable: true,
       eventClick: this.handleDateClick.bind(this)
@@ -55,6 +65,8 @@ export class FullcalendarComponent implements OnInit {
   handleDateClick(dateClicked) {
     this.eventTitle = dateClicked.event.title;
     this.eventDescription = dateClicked.event.extendedProps.description;
+    this.eventAuthor = dateClicked.event.extendedProps.author;
+
     this.showModal = true;
   }
 

@@ -65,7 +65,7 @@
           <span class="ui-panel-title">{{selectedPost.title}}</span>
         </div>
       </p-header>
-      <p>{{selectedPost.description}}</p>
+      <div [innerHTML]="selectedPost.description"></div>
     </p-panel>
 
     <hr>
@@ -80,7 +80,7 @@
         <div style="margin-bottom:2em">Name: {{answer.user.name}}</div>
 
         <div>Answer: </div>
-        <div>{{answer.text}}</div>
+        <div [innerHTML]="answer.text"></div>
 
       </ng-template>
     </p-orderList>

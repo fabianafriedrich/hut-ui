@@ -11,6 +11,7 @@ textarea {
 }
 
 .row {
+  margin: 2%;
   display: flex; /* equal height of the children */
 }
 
@@ -18,9 +19,12 @@ textarea {
   flex: 2.5; /* additionally, equal width */
   padding: 1em;
 }
-.announcements{
+
+.custom{
+  margin: 0;
   text-align: center;
-  height: 40px;
+  position: center;
+  height: 50px;
   background-color: #0b4768;
   color: white;
   margin-bottom: 5%;

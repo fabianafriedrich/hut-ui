@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProfileService} from '../service/profile.service';
 import {User} from '../models/user';
 import {MessageService} from 'primeng/api';
+import {LoginService} from '../service/login.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
   readonly = true;
 
 
-  constructor(private service: ProfileService, private formBuilder: FormBuilder,
+  constructor(private service: ProfileService, private serviceLogin: LoginService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private messageService: MessageService) {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
     console.log(JSON.parse(localStorage.getItem('currentUser')));
@@ -66,13 +67,7 @@ export class ProfileComponent implements OnInit {
   onSubmit(value: string) {
     this.isSubmitted = true;
   }
-  update(){
-    if (this.values.name.value !== this.user.name && this.values.name.value !== null && this.values.name.value !== ''){
-      this.user.name = this.values.name.value;
-    }
-    if (this.values.email.value !== this.user.email && this.values.email.value !== null && this.values.email.value !== '') {
-      this.user.email = this.values.email.value;
-    }
+  updatePassword(){
     if (this.valuesPasswords.password.value !== null && this.valuesPasswords.newPassword.value !== null ){
       if (this.valuesPasswords.password.value === this.valuesPasswords.newPassword.value){
         this.user.password = this.valuesPasswords.password.value;
@@ -84,6 +79,34 @@ export class ProfileComponent implements OnInit {
         });
         return false;
       }
+    }
+    this.service.update(this.user).subscribe(result => {
+        this.form.reset();
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Success',
+          detail: 'Success Updating User Password, Login again please',
+        });
+      },
+      error => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Invalid Inputs',
+          detail: 'Information is invalid',
+        });
+        return false;
+      });
+    setTimeout(() => {
+      this.serviceLogin.logOut();
+      this.router.navigate(['users/welcome']);
+      }, 1000
+    );
+
+  }
+
+    update(){
+    if (this.values.name.value !== this.user.name && this.values.name.value !== null && this.values.name.value !== ''){
+      this.user.name = this.values.name.value;
     }
     this.service.update(this.user).subscribe(result => {
         this.form.reset();

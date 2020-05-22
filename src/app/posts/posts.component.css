@@ -5,10 +5,6 @@
   display: inline;
   margin-right: 50px;
 }
-::ng-deep .ui-table {
-  margin-top: 5%;
-  margin-left: 5%;
-}
 ::ng-deep .ui-orderlist-controls{
   display: none !important;
 }
